@@ -1,0 +1,34 @@
+{% load static %}
+<html>
+<head>
+	<title>Weather App By Priyanka Sanap </title>
+		<style>
+			*{font-size:40px;font-family:Bahnschrift SemiBold SemiConden;}
+			#bg
+			{
+			background-repeat:no-repeat;
+			background-size:100%
+			}
+		</style>
+</head>
+<body id="bg" style="background-image:url('{% static "images/temper.jpg" %}')";>
+<right> <h7 style=font-size:25px;color:navy> Priyanka Sanap </h7>
+<br>
+<h7 style=font-size:25px;color:navy>Terna college of engineering</h7>
+</right>
+<center>
+	<h1 style="font-size:50px;color:navy"> Weather App	</h1>
+	<h2 style="color : red"> Here you can check weather of your city </h2>
+	<form method="POST">
+	{% csrf_token %}
+		<br><br>
+		<input type="text" name="city" placeholder="Enter City Name" required>
+		<br><br>
+		<br>
+		<input type="submit" value="Find">
+	</form>
+	{{ msg }}
+	<img src={{ icon }}>
+</center>
+</body>
+</html>
